@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="SwitchCommander: set up AV network switches in minutes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#132a4a"/>
+    </linearGradient>
+    <linearGradient id="chassis" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3443"/>
+      <stop offset="1" stop-color="#1b2230"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1f6feb" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#glow)"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="72" y="170" fill="#ffffff" font-size="64" font-weight="700" letter-spacing="-1">SwitchCommander</text>
+    <text x="74" y="222" fill="#c9d4e5" font-size="27">Set up AV network switches in minutes,</text>
+    <text x="74" y="258" fill="#c9d4e5" font-size="27">without typing a single CLI command.</text>
+    <g font-size="17" font-weight="600">
+      <rect x="74" y="296" width="96" height="34" rx="17" fill="#1f6feb" fill-opacity="0.18" stroke="#4c8dff"/>
+      <text x="122" y="319" fill="#9cc2ff" text-anchor="middle">Dante</text>
+      <rect x="182" y="296" width="96" height="34" rx="17" fill="#3fb950" fill-opacity="0.15" stroke="#3fb950"/>
+      <text x="230" y="319" fill="#8fdc9c" text-anchor="middle">Q-SYS</text>
+      <rect x="290" y="296" width="96" height="34" rx="17" fill="#e3a008" fill-opacity="0.15" stroke="#e3a008"/>
+      <text x="338" y="319" fill="#f2c867" text-anchor="middle">Shure</text>
+      <rect x="398" y="296" width="150" height="34" rx="17" fill="#bc8cff" fill-opacity="0.15" stroke="#bc8cff"/>
+      <text x="473" y="319" fill="#d7bbff" text-anchor="middle">AV over IP</text>
+    </g>
+  </g>
+  <g>
+    <rect x="712" y="176" width="508" height="156" rx="12" fill="url(#chassis)" stroke="#3b4658"/>
+    <rect x="712" y="176" width="508" height="10" rx="5" fill="#ffffff" opacity="0.05"/>
+    <rect x="730" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="734" y="218" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="730" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="734" y="262" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="768" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="772" y="218" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="768" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="772" y="262" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="806" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="810" y="218" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="806" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="810" y="262" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="844" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="848" y="218" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="844" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/><rect x="848" y="262" width="22" height="6" rx="2" fill="#3fb950" opacity="0.9"/><rect x="882" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="886" y="218" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="882" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="886" y="262" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="920" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="924" y="218" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="920" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="924" y="262" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="958" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="962" y="218" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="958" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="962" y="262" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="996" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="1000" y="218" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="996" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#4c8dff" stroke-width="2"/><rect x="1000" y="262" width="22" height="6" rx="2" fill="#4c8dff" opacity="0.9"/><rect x="1034" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1038" y="218" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1034" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1038" y="262" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1072" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1076" y="218" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1072" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1076" y="262" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1110" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1114" y="218" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1110" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#e3a008" stroke-width="2"/><rect x="1114" y="262" width="22" height="6" rx="2" fill="#e3a008" opacity="0.9"/><rect x="1148" y="214" width="30" height="34" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="2"/><rect x="1152" y="218" width="22" height="6" rx="2" fill="#30363d" opacity="0.4"/><rect x="1148" y="258" width="30" height="34" rx="4" fill="#0d1117" stroke="#bc8cff" stroke-width="2"/><rect x="1152" y="262" width="22" height="6" rx="2" fill="#bc8cff" opacity="0.9"/>
+    <circle cx="1204" cy="200" r="5" fill="#3fb950"/>
+    <circle cx="1204" cy="218" r="5" fill="#3fb950" opacity="0.6"/>
+    <text x="1196" y="318" fill="#7d8aa0" font-family="Menlo, Consolas, monospace" font-size="13" text-anchor="end">AV-SW-01</text>
+  </g>
+</svg>
