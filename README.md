@@ -28,7 +28,7 @@ connect over SSH or Telnet, see exactly what is on it, and push a clean, AV-read
 from a simple form. No more copying CLI snippets from PDFs on a job site.
 
 - **Built for AV.** IGMP snooping and queriers per VLAN, QoS presets for Dante, Shure and Q-SYS,
-  and Green Ethernet and EEE turned off so audio clocks stay locked.
+  Green Ethernet settings, and EEE turned off so devices stay online.
 - **See before you send.** Every command is previewed, the running config is backed up first, and
   the app stops at the first command the switch rejects.
 - **Repeatable.** Save a configuration as a file and load it onto the next switch on the job.
@@ -43,10 +43,10 @@ from a simple form. No more copying CLI snippets from PDFs on a job site.
 ### Read what is on the switch
 
 - **Running config** pulled and saved to a file in one click.
-- **MAC address table** with IP addresses filled in from the switch's ARP table or a subnet scan.
+- **MAC address table** with IP addresses filled in from the switch's ARP table or a local subnet scan.
   Filter it, and export it to CSV for your as-built documentation.
 - **Multicast groups** on every VLAN, with the ports that joined each one and a best guess at what
-  it carries: PTP clock, Dante, AES67 / SAP, sACN or AV over IP video.
+  it carries: PTP clock, Dante, AES67 / SAP, sACN or AVoIP.
 - **Querier status** per VLAN, so you can see which device is the active querier.
 
 <picture>
@@ -87,7 +87,7 @@ Unsure about a setting? Leave its box on the dash and the switch keeps what it h
 | **Aruba** | 2530 / 2540 / 2930F / 2930M / 3810, CX 6000 to 6400 | ✅ | Coming soon |
 | **Netgear** | M4250 / M4350 (AV Line), M4300 | ✅ | Coming soon |
 | **Extreme** | X440-G2 / X460-G2 / X465 / X590, 5320 to 5720, VSP 4900 / 7400 | ✅ | Coming soon |
-| **Ubiquiti** | EdgeSwitch, UniFi US / USW Pro / USW Enterprise | ✅ | |
+| **Ubiquiti** | EdgeSwitch, UniFi US / USW Pro / USW Enterprise | ✅ | ﹣ |
 
 Connect with a USB console cable, SSH or Telnet. Switches that are only managed from a web page or
 the cloud (Aruba Instant On, Netgear Smart, UniFi Lite / Flex / Ultra) have no command line, so
@@ -144,7 +144,7 @@ For the AppImage, make it executable first: `chmod +x SwitchCommander_*.AppImage
 ## Licence
 
 SwitchCommander asks for your licence key the first time it opens. The key is emailed to you when
-you buy.
+you purchase.
 
 - **One key, one computer.** Changing laptops? Use **Help › Move to another computer** on the old
   one, then enter the key on the new one.
