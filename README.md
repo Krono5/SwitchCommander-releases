@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="SwitchCommander: set up AV network switches in minutes, without typing a single CLI command" width="100%">
+  <img src="assets/banner.svg" alt="SwitchCommander: set up AV network switches in minutes, without typing a single CLI command" width="100%">
 </p>
 
 <p align="center">
@@ -9,6 +9,8 @@
 
 <p align="center">
   <a href="https://github.com/Krono5/SwitchCommander-releases/releases/latest"><b>Download the latest version</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://krono5.github.io/SwitchCommander-releases/">Website</a>
   &nbsp;·&nbsp;
   <a href="#install">Install</a>
   &nbsp;·&nbsp;
@@ -32,8 +34,8 @@ from a simple form. No more copying CLI snippets from PDFs on a job site.
 - **Repeatable.** Save a configuration as a file and load it onto the next switch on the job.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/write-dark.png">
-  <img alt="The Write tab: port profiles shown as coloured ports, with the exact commands previewed on the right" src=".github/assets/write-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/write-dark.png">
+  <img alt="The Write tab: port profiles shown as coloured ports, with the exact commands previewed on the right" src="assets/write-light.png">
 </picture>
 
 ## Features
@@ -48,8 +50,8 @@ from a simple form. No more copying CLI snippets from PDFs on a job site.
 - **Querier status** per VLAN, so you can see which device is the active querier.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/read-multicast-dark.png">
-  <img alt="The multicast view: groups per VLAN, what each one probably carries, and the ports that joined it" src=".github/assets/read-multicast-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/read-multicast-dark.png">
+  <img alt="The multicast view: groups per VLAN, what each one probably carries, and the ports that joined it" src="assets/read-multicast-light.png">
 </picture>
 
 ### Write a configuration from a form
@@ -73,8 +75,8 @@ Unsure about a setting? Leave its box on the dash and the switch keeps what it h
 - **Updates itself.** Each time it starts, SwitchCommander installs the latest version.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/read-mac-dark.png">
-  <img alt="The MAC table view with IP addresses resolved from the switch's ARP table" src=".github/assets/read-mac-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/read-mac-dark.png">
+  <img alt="The MAC table view with IP addresses resolved from the switch's ARP table" src="assets/read-mac-light.png">
 </picture>
 
 ## Supported switches

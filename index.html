@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SwitchCommander</title>
+<meta name="description" content="Set up AV network switches in minutes, without typing a single CLI command. For Windows, macOS and Linux.">
+<meta property="og:title" content="SwitchCommander">
+<meta property="og:description" content="Set up AV network switches in minutes, without typing a single CLI command.">
+<meta property="og:image" content="assets/write-dark.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f6feb'/%3E%3Cg fill='%23fff'%3E%3Crect x='6' y='10' width='5' height='5' rx='1'/%3E%3Crect x='13.5' y='10' width='5' height='5' rx='1'/%3E%3Crect x='21' y='10' width='5' height='5' rx='1'/%3E%3Crect x='6' y='17' width='5' height='5' rx='1'/%3E%3Crect x='13.5' y='17' width='5' height='5' rx='1'/%3E%3Crect x='21' y='17' width='5' height='5' rx='1'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #ffffff; --surface: #f6f8fa; --border: #d8dee4; --text: #1f2328; --muted: #59636e;
+    --accent: #1f6feb; --accent-text: #ffffff; --hero-a: #0b1220; --hero-b: #132a4a;
+    --green: #2e7d32; --blue: #1f6feb; --amber: #b26a00; --purple: #8e24aa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d; --text: #e6edf3; --muted: #9198a1;
+      --accent: #4c8dff; --accent-text: #0d1117;
+      --green: #3fb950; --blue: #4c8dff; --amber: #e3a008; --purple: #bc8cff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  nav .brand { font-weight: 700; font-size: 19px; color: #fff; text-decoration: none; }
+  nav .links a { color: #c9d4e5; text-decoration: none; margin-left: 22px; font-size: 15px; }
+  nav .links a:hover { color: #fff; }
+
+  header.hero {
+    background: radial-gradient(ellipse at 78% 40%, rgba(31,111,235,.35), transparent 60%),
+                linear-gradient(135deg, var(--hero-a), var(--hero-b));
+    color: #fff; padding-bottom: 72px;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-top: 48px; }
+  h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -1.5px; }
+  .lede { font-size: 21px; color: #c9d4e5; margin: 0 0 28px; max-width: 34ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .chip { border: 1px solid; border-radius: 999px; padding: 3px 14px; font-size: 14px; font-weight: 600; }
+  .chip.c1 { color: #9cc2ff; border-color: #4c8dff; background: rgba(76,141,255,.15); }
+  .chip.c2 { color: #8fdc9c; border-color: #3fb950; background: rgba(63,185,80,.13); }
+  .chip.c3 { color: #f2c867; border-color: #e3a008; background: rgba(227,160,8,.13); }
+  .chip.c4 { color: #d7bbff; border-color: #bc8cff; background: rgba(188,140,255,.13); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 16px; text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  }
+  .btn.primary { background: #1f6feb; color: #fff; box-shadow: 0 6px 20px rgba(31,111,235,.4); }
+  .btn.primary:hover { background: #2b7bff; }
+  .btn.ghost { color: #fff; border-color: rgba(255,255,255,.3); }
+  .btn.ghost:hover { border-color: #fff; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .version { color: #8da2c0; font-size: 14px; margin-top: 14px; }
+  .other-os { color: #c9d4e5; font-size: 14px; margin-top: 6px; }
+  .other-os a { color: #9cc2ff; }
+
+  .shot { border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,.25); width: 100%; height: auto; display: block; }
+  .hero .shot { border-color: rgba(255,255,255,.12); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+
+  section { padding: 80px 0; }
+  section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  h2 { font-size: 34px; letter-spacing: -.5px; margin: 0 0 12px; }
+  .sub { color: var(--muted); font-size: 19px; margin: 0 0 40px; max-width: 60ch; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  section:not(.alt) .card { background: var(--surface); }
+  .card h3 { margin: 0 0 8px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+
+  .split { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center; margin-top: 64px; }
+  .split.flip { grid-template-columns: 1.3fr 1fr; }
+  .split.flip .text { order: 2; }
+  .split h3 { font-size: 24px; margin: 0 0 12px; }
+  .split ul { padding-left: 20px; margin: 0; color: var(--muted); }
+  .split li { margin-bottom: 8px; }
+  .split li b { color: var(--text); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .5px; }
+  td.c { text-align: center; white-space: nowrap; }
+  .yes { color: var(--green); font-weight: 700; }
+  .soon { color: var(--muted); font-size: 14px; }
+  .table-wrap { overflow-x: auto; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; }
+  .note { color: var(--muted); font-size: 15px; margin-top: 16px; }
+
+  .install { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .install .card h3 { font-size: 20px; }
+  .install code { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; font-size: 13px; word-break: break-all; }
+  .install pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; white-space: pre-wrap; word-break: break-all; font-size: 13px; margin: 10px 0 0; }
+  .install .card { display: flex; flex-direction: column; }
+  .install .dl { margin-top: auto; padding-top: 16px; }
+  .install .btn { background: var(--accent); color: var(--accent-text); padding: 9px 16px; font-size: 15px; }
+  .install p + p { margin-top: 10px; }
+
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; text-align: center; }
+  footer a { color: var(--muted); }
+
+  .hero-grid > *, .split > *, .cards > *, .install > * { min-width: 0; }
+  @media (max-width: 900px) {
+    .wrap { padding: 0 16px; }
+    .hero-grid, .split, .split.flip { grid-template-columns: 1fr; }
+    .split.flip .text { order: 0; }
+    .cards, .install { grid-template-columns: 1fr; }
+    nav .links { display: none; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">SwitchCommander</a>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#switches">Supported switches</a>
+        <a href="#download">Download</a>
+        <a href="https://github.com/Krono5/SwitchCommander-releases/issues/new">Support</a>
+      </div>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <h1>Set up AV network switches in minutes.</h1>
+        <p class="lede">Read what is on a switch and push a clean, AV-ready configuration from a simple form, without typing a single CLI command.</p>
+        <div class="chips">
+          <span class="chip c1">Dante</span><span class="chip c2">Q-SYS</span><span class="chip c3">Shure</span><span class="chip c4">AV over IP</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" id="hero-download" href="https://github.com/Krono5/SwitchCommander-releases/releases/latest">Download</a>
+          <a class="btn ghost" href="#features">See what it does</a>
+        </div>
+        <div class="version" id="version">Windows, macOS and Linux</div>
+        <div class="other-os" id="other-os" hidden><a href="#download">Other platforms</a></div>
+      </div>
+      <picture>
+        <source media="(prefers-color-scheme: light)" srcset="assets/write-light.png">
+        <img class="shot" src="assets/write-dark.png" alt="The Write tab: coloured port profiles on the left and the exact commands previewed on the right" width="2160" height="1350">
+      </picture>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="features">
+    <div class="wrap">
+      <h2>Built for AV, not for network engineers</h2>
+      <p class="sub">Plug in with a console cable or connect over SSH or Telnet. SwitchCommander handles the CLI so you can get on with the job.</p>
+      <div class="cards">
+        <div class="card"><h3><span class="dot" style="background:var(--blue)"></span>AV essentials built in</h3><p>IGMP snooping and queriers per VLAN, QoS presets for Dante, Shure and Q-SYS, and Green Ethernet and EEE turned off so audio clocks stay locked.</p></div>
+        <div class="card"><h3><span class="dot" style="background:var(--green)"></span>See before you send</h3><p>Every command is previewed. The running config is backed up first, and the app stops at the first command the switch rejects.</p></div>
+        <div class="card"><h3><span class="dot" style="background:var(--amber)"></span>Repeatable</h3><p>Save a configuration as a file and load it onto the next switch on the job, or the next job.</p></div>
+      </div>
+
+      <div class="split">
+        <div class="text">
+          <h3>Read what is on the switch</h3>
+          <ul>
+            <li><b>Multicast groups</b> per VLAN, with the ports that joined and a best guess at what each carries: PTP, Dante, AES67, sACN or video.</li>
+            <li><b>Querier status</b> so you know which device is the active querier on every VLAN.</li>
+            <li><b>MAC table</b> with IP addresses from the switch or a subnet scan, exported to CSV for your as-builts.</li>
+            <li><b>Running config</b> saved to a file in one click.</li>
+          </ul>
+        </div>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/read-multicast-dark.png">
+          <img class="shot" src="assets/read-multicast-light.png" alt="The multicast view: groups per VLAN, what each probably carries, and the ports that joined" width="2160" height="1350" loading="lazy">
+        </picture>
+      </div>
+
+      <div class="split flip">
+        <div class="text">
+          <h3>Write a configuration from a form</h3>
+          <ul>
+            <li><b>VLANs</b> with IP addresses, IGMP snooping, querier and immediate leave.</li>
+            <li><b>Port profiles</b> like Dante, Control or Uplink trunk. Click ports to assign them.</li>
+            <li><b>QoS</b> presets for Audinate Dante, Shure and Q-SYS (Q-LAN).</li>
+            <li><b>DHCP server</b> with address pools per VLAN.</li>
+            <li><b>Management access:</b> turn SSH, Telnet and the web interface on or off.</li>
+            <li>Leave any box on the dash and the switch keeps what it has.</li>
+          </ul>
+        </div>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/read-mac-dark.png">
+          <img class="shot" src="assets/read-mac-light.png" alt="The MAC table with IP addresses resolved from the switch's ARP table" width="2160" height="1350" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section id="switches" class="alt">
+    <div class="wrap">
+      <h2>Supported switches</h2>
+      <p class="sub">Works with the switches AV integrators actually install, over a USB console cable, SSH or Telnet.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Manufacturer</th><th>Models</th><th class="c">Read</th><th class="c">Write</th></tr></thead>
+          <tbody>
+            <tr><td><b>Cisco</b></td><td>Catalyst 1200 / 1300, CBS250 / CBS350, SG250 / SG350 / SG550X, SG300</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+            <tr><td><b>Aruba</b></td><td>2530 / 2540 / 2930F / 2930M / 3810, CX 6000 to 6400</td><td class="c yes">✓</td><td class="c soon">Coming soon</td></tr>
+            <tr><td><b>Netgear</b></td><td>M4250 / M4350 (AV Line), M4300</td><td class="c yes">✓</td><td class="c soon">Coming soon</td></tr>
+            <tr><td><b>Extreme</b></td><td>X440-G2 / X460-G2 / X465 / X590, 5320 to 5720, VSP 4900 / 7400</td><td class="c yes">✓</td><td class="c soon">Coming soon</td></tr>
+            <tr><td><b>Ubiquiti</b></td><td>EdgeSwitch, UniFi US / USW Pro / USW Enterprise</td><td class="c yes">✓</td><td class="c"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Switches managed only from a web page or the cloud (Aruba Instant On, Netgear Smart, UniFi Lite / Flex / Ultra) have no command line, so SwitchCommander can't manage them.</p>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <h2>Download</h2>
+      <p class="sub">Install it once and it keeps itself up to date. A licence key, emailed when you buy, activates one computer and works offline for 30 days.</p>
+      <div class="install">
+        <div class="card">
+          <h3>Windows</h3>
+          <p>Windows 10 or 11.</p>
+          <p>If SmartScreen says <i>Windows protected your PC</i>, click <b>More info</b>, then <b>Run anyway</b>.</p>
+          <div class="dl"><a class="btn" data-os="windows" href="https://github.com/Krono5/SwitchCommander-releases/releases/latest">Download for Windows</a></div>
+        </div>
+        <div class="card">
+          <h3>Mac</h3>
+          <p>Apple silicon and Intel, in one download.</p>
+          <p>Drag it to Applications. If macOS won't open it, go to <b>System Settings › Privacy &amp; Security</b> and click <b>Open Anyway</b>. If it says the app is damaged, run this in Terminal:</p>
+          <pre>xattr -dr com.apple.quarantine /Applications/SwitchCommander.app</pre>
+          <div class="dl"><a class="btn" data-os="mac" href="https://github.com/Krono5/SwitchCommander-releases/releases/latest">Download for Mac</a></div>
+        </div>
+        <div class="card">
+          <h3>Linux</h3>
+          <p>.deb for Ubuntu and Debian, .rpm for Fedora, or an AppImage for anything else.</p>
+          <p>For the USB console port, run once and log back in:</p>
+          <pre>sudo usermod -aG dialout $USER</pre>
+          <div class="dl"><a class="btn" data-os="linux" href="https://github.com/Krono5/SwitchCommander-releases/releases/latest">Download for Linux</a></div>
+        </div>
+      </div>
+      <p class="note">Moving to a new laptop? Use <b>Help › Move to another computer</b> on the old one, then enter your key on the new one. All files are on the <a href="https://github.com/Krono5/SwitchCommander-releases/releases/latest">release page</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="https://github.com/Krono5/SwitchCommander-releases/issues/new">Report a problem or request a feature</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/Krono5/SwitchCommander-releases/releases">All releases</a>
+    <p>Copyright © 2026 Tyler Storr. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Point each download button at the right file on the latest release, and the
+  // hero button at the visitor's own platform. Every link already works without this.
+  (function () {
+    var ua = navigator.userAgent;
+    var os = /Mac/.test(ua) && !/iPhone|iPad/.test(ua) ? "mac" : /Win/.test(ua) ? "windows" : /Linux|X11/.test(ua) && !/Android/.test(ua) ? "linux" : null;
+    var labels = { windows: "Windows", mac: "Mac", linux: "Linux" };
+    // First pattern that matches wins.
+    var pick = {
+      windows: [/x64-setup\.exe$/, /\.msi$/],
+      mac: [/universal\.dmg$/, /\.dmg$/],
+      linux: [/\.AppImage$/]
+    };
+    var hero = document.getElementById("hero-download");
+    if (os) {
+      hero.textContent = "Download for " + labels[os];
+      document.getElementById("other-os").hidden = false;
+    }
+    fetch("https://api.github.com/repos/Krono5/SwitchCommander-releases/releases/latest")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (rel) {
+        function urlFor(key) {
+          for (var i = 0; i < pick[key].length; i++) {
+            var a = rel.assets.filter(function (a) { return pick[key][i].test(a.name); })[0];
+            if (a) return a.browser_download_url;
+          }
+        }
+        document.querySelectorAll("a[data-os]").forEach(function (el) {
+          var u = urlFor(el.dataset.os);
+          if (u) el.href = u;
+        });
+        if (os && urlFor(os)) hero.href = urlFor(os);
+        document.getElementById("version").textContent =
+          "Version " + rel.tag_name.replace(/^v/, "") + " · Windows, macOS and Linux";
+      })
+      .catch(function () {});
+  })();
+</script>
+</body>
+</html>
